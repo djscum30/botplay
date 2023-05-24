@@ -1,0 +1,80 @@
+import time
+import random
+from selenium import webdriver
+from selenium.webdriver.ie.options import Options
+
+# Replace with the path to your Internet Explorer WebDriver executable
+webdriver_path = r"C:\Users\djscu\OneDrive\Desktop\IEDriverServer.exe"
+
+# List of proxy server addresses
+proxy_list = [
+    "45.9.14.200:3080",
+    "66.29.129.53:57592",
+    "192.111.129.145:16894",
+    "74.119.147.209:4145",
+    "172.106.13.203:34292",
+    "144.76.99.207:16004",
+    "38.91.107.220:61743",
+    "192.252.208.70:14282",
+    "77.73.67.161:1080",
+    "205.240.77.164:4145",
+    "212.83.138.132:40293",
+    "192.252.209.155:14455",
+    "68.71.247.130:4145",
+    "66.23.233.210:61827",
+    "172.106.13.203:57617",
+    "192.111.130.2:4145",
+    "66.29.128.242:46531",
+    "46.10.208.106:8192",
+    "192.111.135.17:18302",
+    "167.71.241.136:33299",
+    "174.64.199.79:4145",
+    "192.252.211.197:14921",
+    "212.83.143.204:34382",
+    "157.245.247.84:59166",
+    "174.64.199.82:4145",
+    "192.111.135.18:18301",
+    "212.83.143.159:34300",
+    "199.229.254.129:4145",
+    "192.252.214.20:15864",
+    "192.111.137.35:4145",
+    "184.170.245.148:4145",
+    "209.159.153.21:55948",
+    "195.154.43.189:40090",
+    "45.233.85.205:1080",
+    "195.154.43.182:48130",
+    "174.138.176.76:34392",
+    "192.111.139.162:4145"
+]
+
+def play_song_with_proxy(song_url, num_plays):
+    options = Options()
+    proxy_address = random.choice(proxy_list)
+    options.add_argument("--proxy-server={}".format(proxy_address))
+    driver = webdriver.Ie(executable_path=webdriver_path, options=options)
+
+    try:
+        driver.get(song_url)
+        time.sleep(2)  # Adjust delay as needed
+
+        for _ in range(num_plays):
+            # Perform the actions to play the song
+            # ...
+
+            time.sleep(1)  # Adjust delay as needed
+
+    finally:
+        driver.quit()
+
+# Rest of the code...
+
+print("\033[91mEnter the song URL (or 'q' to quit):\033[0m")
+song_url = https://open.spotify.com/album/6YeFee2v8ckv85g6f0HwFv?si=C4wwuouCQ-CjGkUhGf_v6A()
+
+if song_url.lower() == "q":
+    print("Exiting the program.")
+    exit()
+
+num_plays = 100
+
+play_song_with_proxy(song_url, num_plays)
